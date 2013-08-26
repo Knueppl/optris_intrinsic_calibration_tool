@@ -15,10 +15,12 @@ add_definitions(-Wall -O2 -ffast-math -funroll-loops -ftree-vectorize -fomit-fra
 set(MOC_HEADERS
     ${SRC_DIR}/OpenCvWidget.h
     ${SRC_DIR}/ThermoCamThread.h
+    ${SRC_DIR}/MainWindow.h
     )
 
 set(FORMS
-    ${FORM_DIR}/MainWidget.ui
+    ${FORM_DIR}/MainWindow.ui
+    ${FORM_DIR}/ConfigDialog.ui
     )
 
 QT4_WRAP_CPP(HEADERS_MOC ${MOC_HEADERS})
@@ -36,12 +38,13 @@ link_directories(${OpenCV_LIBRARY_DIRS}
 add_executable(optris-calibration-tool
                ${SRC_DIR}/main.cpp
                ${SRC_DIR}/OpenCvWidget.cpp
-               ${SRC_DIR}/MainWidget.cpp
+               ${SRC_DIR}/MainWindow.cpp
                ${SRC_DIR}/ThermoCamThread.cpp
                ${SRC_DIR}/ThermoCam.cpp
                ${SRC_DIR}/ImageBuilder.cpp
                ${SRC_DIR}/ImagerUVC.cpp
                ${SRC_DIR}/VideoDevice.cpp
+               ${SRC_DIR}/ConfigDialog.cpp
                ${HEADERS_MOC}
                ${FORMS_MOC}
                )

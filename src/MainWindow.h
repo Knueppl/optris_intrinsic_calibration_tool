@@ -2,6 +2,11 @@
 #define __MAIN_WINDOW__
 
 #include <QMainWindow>
+#include <QTimer>
+#include <QByteArray>
+
+#include "ThermoCam.h"
+#include "ConfigDialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -9,12 +14,22 @@ class MainWindow;
 
 class MainWindow : public QMainWindow
 {
+    Q_OBJECT
+
 public:
-    MainWindow(QWidget* parent = 0);
+    MainWindow(const QByteArray& configFile, QWidget* parent = 0);
     virtual ~MainWindow(void);
 
+private slots:
+    void tick(void);
+
 private:
+    void findPoints(std::vector<cv::Point2f>& centers, cv::Mat& image);
+
     Ui::MainWindow* _ui;
+    QTimer _timer;
+    ThermoCam _thermo;
+    ConfigDialog _dialog;
 };
 
 #endif

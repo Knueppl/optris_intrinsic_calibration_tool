@@ -16,7 +16,10 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="OpenCvWidget" name="widget" native="true"/>
+     <widget class="OpenCvWidget" name="_thermoView" native="true"/>
+    </item>
+    <item>
+     <widget class="OpenCvWidget" name="_thresholdView" native="true"/>
     </item>
    </layout>
   </widget>
