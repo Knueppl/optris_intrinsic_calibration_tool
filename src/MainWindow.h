@@ -22,6 +22,7 @@ public:
 
 private slots:
     void tick(void);
+    void calibrate(void);
 
 private:
     void findPoints(std::vector<cv::Point2f>& centers, cv::Mat& image);
@@ -30,6 +31,8 @@ private:
     QTimer _timer;
     ThermoCam _thermo;
     ConfigDialog _dialog;
+    std::vector<std::vector<cv::Point2f> > _points;
+    cv::Size _imageSize;
 };
 
 #endif

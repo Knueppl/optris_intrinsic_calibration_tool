@@ -15,6 +15,7 @@ public:
     float threshold(void) const;
     unsigned int rows(void) const;
     unsigned int cols(void) const;
+    float pointDistance(void) const;
 
 private:
     Ui::ConfigDialog* _ui;

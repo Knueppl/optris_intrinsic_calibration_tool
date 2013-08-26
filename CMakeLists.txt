@@ -4,7 +4,7 @@ set(SRC_DIR ${PROJECT_SOURCE_DIR}/src)
 set(FORM_DIR ${PROJECT_SOURCE_DIR}/forms)
 
 find_package(Qt4 REQUIRED)
-find_package(OpenCV 2.3 REQUIRED)
+find_package(OpenCV 2.4.6.1 REQUIRED)
 
 include(${QT_USE_FILE})
 

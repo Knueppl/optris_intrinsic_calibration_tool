@@ -6,6 +6,8 @@ ConfigDialog::ConfigDialog(QWidget* parent)
       _ui(new Ui::ConfigDialog)
 {
     _ui->setupUi(this);
+
+    this->connect(_ui->_buttonClose, SIGNAL(clicked()), this, SLOT(accept()));
 }
 
 float ConfigDialog::threshold(void) const
@@ -21,4 +23,9 @@ unsigned int ConfigDialog::rows(void) const
 unsigned int ConfigDialog::cols(void) const
 {
     return static_cast<unsigned int>(_ui->_spinCols->value());
+}
+
+float ConfigDialog::pointDistance(void) const
+{
+    return _ui->_spinDistance->value();
 }
