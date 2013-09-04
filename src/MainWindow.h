@@ -7,6 +7,7 @@
 
 #include "ThermoCam.h"
 #include "ConfigDialog.h"
+#include "OpenCvWidget.h"
 
 namespace Ui {
 class MainWindow;
@@ -23,16 +24,21 @@ public:
 private slots:
     void tick(void);
     void calibrate(void);
+    void saveToFile(void);
 
 private:
     void findPoints(std::vector<cv::Point2f>& centers, cv::Mat& image);
+    void cvMatToQString(QString& string, const cv::Mat& mat);
 
     Ui::MainWindow* _ui;
+    OpenCvWidget _undistortView;
     QTimer _timer;
     ThermoCam _thermo;
     ConfigDialog _dialog;
     std::vector<std::vector<cv::Point2f> > _points;
     cv::Size _imageSize;
+    cv::Mat _intrinsic;
+    cv::Mat _distortion;
 };
 
 #endif
